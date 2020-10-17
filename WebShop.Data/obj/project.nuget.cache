@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "apkOdzI7uqbZ7wWCFVXArBEQ5FSYoOhlDLukcuAQ/Q+30TpnoQmhgLmVYVqac1h0j9+TQ4bOJY7nZA6P2858aA==",
+  "success": true,
+  "projectFilePath": "D:\\DefaultFiles\\WebShop\\WebShop.Data\\WebShop.Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
