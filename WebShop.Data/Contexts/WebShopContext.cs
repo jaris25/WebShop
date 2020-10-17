@@ -12,6 +12,12 @@ namespace WebShop.Data.Contexts
         public DbSet<Discount> Discoutns { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<RegistrationDetails> RegistrationDetails { get; set; }
+        public WebShopContext(DbContextOptions<WebShopContext> options)
+        : base(options)
+        {
+            Database.EnsureCreated();
+        }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,7 +9,6 @@ namespace WebShop.Data.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
         public RegistrationDetails RegistrationDetails { get; set; }
         public ICollection<Order> Orders { get; set; }
     }
