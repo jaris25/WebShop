@@ -1,0 +1,8 @@
+D:\DefaultFiles\WebShop\WebShop.Data\bin\Debug\netstandard2.0\WebShop.Data.deps.json
+D:\DefaultFiles\WebShop\WebShop.Data\bin\Debug\netstandard2.0\WebShop.Data.dll
+D:\DefaultFiles\WebShop\WebShop.Data\obj\Debug\netstandard2.0\WebShop.Data.csprojAssemblyReference.cache
+D:\DefaultFiles\WebShop\WebShop.Data\obj\Debug\netstandard2.0\WebShop.Data.AssemblyInfoInputs.cache
+D:\DefaultFiles\WebShop\WebShop.Data\obj\Debug\netstandard2.0\WebShop.Data.AssemblyInfo.cs
+D:\DefaultFiles\WebShop\WebShop.Data\bin\Debug\netstandard2.0\WebShop.Data.pdb
+D:\DefaultFiles\WebShop\WebShop.Data\obj\Debug\netstandard2.0\WebShop.Data.dll
+D:\DefaultFiles\WebShop\WebShop.Data\obj\Debug\netstandard2.0\WebShop.Data.pdb
