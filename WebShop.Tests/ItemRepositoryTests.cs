@@ -64,7 +64,7 @@ namespace WebShop.Tests
         }
 
         [Fact]
-        public void OrderTwoItemsAtTheSameTiem()
+        public void OrderTwoItemsWhenOneIsOutOfStock()
         {
             var options = new DbContextOptionsBuilder<WebShopContext>()
                            .UseInMemoryDatabase(databaseName: $"WebShopDatabase{Guid.NewGuid()}")

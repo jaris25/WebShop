@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using WebShop.Data.Contexts;
 using WebShop.Data.Entities;
 
@@ -31,9 +32,8 @@ namespace WebShop.Data.Repository
             }
         }
 
-        public void AddItemToOrder(OrderItem orderItem)
+        public void AddItemToOrder(OrderItem orderItem, Order order)
         {
-            var order = new Order();
             if (ItemIsInStock(orderItem))
             {
                 order.OrderItems.Add(orderItem);
@@ -43,8 +43,16 @@ namespace WebShop.Data.Repository
 
         public bool ItemIsInStock(OrderItem item)
         {
-            if (item.Product.Suppliers.Where(s => s.Quantity >= item.Quantity).FirstOrDefault() != null) return true;
-            return false;
+            return item.Product.Suppliers.Where(s => s.Quantity >= item.Quantity).FirstOrDefault() != null ? true : false;
+        }
+
+
+        public void countPrice(Order order)
+        {
+            foreach(var item in order.OrderItems)
+            {
+                order.TotalPrice += item.Product.Price * item.Quantity * item.Product.Discount.DiscountValue;
+            }
         }
     }
 }

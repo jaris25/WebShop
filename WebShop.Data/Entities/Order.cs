@@ -12,7 +12,7 @@ namespace WebShop.Data.Entities
         public int Id { get; set; }
         [Required]
         public DateTime DateOrdered { get; set; }
-        public int TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }
         public int CustomerId { get; set; }

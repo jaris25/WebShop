@@ -9,15 +9,10 @@ namespace WebShop.Data.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        public int Price { get; set; }
-        [Required]
         public int Quantity { get; set; }
         [ForeignKey("OrderId")]
         public Order Order { get; set; }
         public int OrderId { get; set; }
-        [ForeignKey("DiscountId")]
-        public Discount Discount { get; set; }
-        public int? DiscountId { get; set; }
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
         public int ProductId { get; set; }

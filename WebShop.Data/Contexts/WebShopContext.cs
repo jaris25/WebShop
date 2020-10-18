@@ -12,6 +12,7 @@ namespace WebShop.Data.Contexts
         public DbSet<Discount> Discoutns { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<RegistrationDetails> RegistrationDetails { get; set; }
+
         public WebShopContext(DbContextOptions<WebShopContext> options)
         : base(options)
         {
@@ -26,9 +27,16 @@ namespace WebShop.Data.Contexts
                 .WithOne(r => r.Customer)
                 .IsRequired();
 
+            // Some dicounts may be applied to many different products, after removing the discount product should stay
             modelBuilder.Entity<Discount>()
-                .HasMany(d => d.OrderItems)
+                .HasMany(d => d.Products)
                 .WithOne(o => o.Discount)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // On deleting product delete behavior should be restricted because after removing product from sales some orders with this product may not be fulfilled yet.
+            modelBuilder.Entity<Product>()
+                .HasMany(p => p.OrderItems)
+                .WithOne(i => i.Product)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

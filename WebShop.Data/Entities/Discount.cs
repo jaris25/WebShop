@@ -10,7 +10,7 @@ namespace WebShop.Data.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        public double DiscountPercents { get; set; }
-        public IEnumerable<OrderItem> OrderItems { get; set; }
+        public double DiscountValue { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }

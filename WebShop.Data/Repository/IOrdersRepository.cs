@@ -6,6 +6,6 @@ namespace WebShop.Data.Repository
     {
         void ConfirmOrder(Order order);
         bool ItemIsInStock(OrderItem item);
-        void AddItemToOrder(OrderItem orderItem);
+        void AddItemToOrder(OrderItem orderItem, Order order);
     }
 }
