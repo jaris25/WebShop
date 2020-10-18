@@ -20,13 +20,13 @@ namespace WebShop.Data.Repository
             {
                 foreach (var item in order.OrderItems)
                 {
+                    var supplier = GetAvailableSupplier(item);
                     // Additional check to see if item is still available when confirming order.
-                    if (!ItemIsInStock(item))
+                    if (supplier == null)
                     {
-                        order.TotalPrice -= item.Product.Price * item.Quantity;
-                        continue;
+                            order.TotalPrice -= item.Product.Price * item.Quantity;
+                            continue;
                     }
-                    var supplier = item.Product.Suppliers.Where(s => s.Quantity >= item.Quantity).FirstOrDefault();
                     supplier.Quantity -= item.Quantity;
                 }
             }
@@ -34,18 +34,17 @@ namespace WebShop.Data.Repository
 
         public void AddItemToOrder(OrderItem orderItem, Order order)
         {
-            if (ItemIsInStock(orderItem))
+            if (GetAvailableSupplier(orderItem) != null)
             {
                 order.OrderItems.Add(orderItem);
             }
             _context.Orders.Add(order);
         }
 
-        //TODO: Create method to order the amount of items that are still in stock
-        public bool ItemIsInStock(OrderItem item)
+        //TODO: Create method to order the amount of items that are still in stock if amount exceeds suppliers stock
+        public Supplier GetAvailableSupplier(OrderItem item)
         {
-            return item.Product.Suppliers.Where(s => s.Quantity >= item.Quantity).FirstOrDefault() != null ? true : false;
+            return item.Product.ProductSuppliers.Where(ps => ps.Supplier.Quantity >= item.Quantity).Select(ps => ps.Supplier).FirstOrDefault();
         }
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebShop.Data.Entities
@@ -12,8 +13,6 @@ namespace WebShop.Data.Entities
         public string Name { get; set; }
         public decimal PricePerUnit { get; set; }
         public int Quantity { get; set; }
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
-        public int ProductId { get; set; }
+        public IEnumerable<ProductSupplier> ProductSuppliers { get; set; }
     }
 }

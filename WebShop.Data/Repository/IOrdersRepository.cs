@@ -5,7 +5,7 @@ namespace WebShop.Data.Repository
     public interface IOrdersRepository
     {
         void ConfirmOrder(Order order);
-        bool ItemIsInStock(OrderItem item);
+        Supplier GetAvailableSupplier(OrderItem item);
         void AddItemToOrder(OrderItem orderItem, Order order);
     }
 }

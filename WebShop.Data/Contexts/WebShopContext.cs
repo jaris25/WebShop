@@ -12,6 +12,7 @@ namespace WebShop.Data.Contexts
         public DbSet<Discount> Discoutns { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<RegistrationDetails> RegistrationDetails { get; set; }
+        public DbSet<ProductSupplier> ProductSuppliers { get; set; }
 
         public WebShopContext(DbContextOptions<WebShopContext> options)
         : base(options)
@@ -38,6 +39,19 @@ namespace WebShop.Data.Contexts
                 .HasMany(p => p.OrderItems)
                 .WithOne(i => i.Product)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ProductSupplier>()
+                .HasKey(ps => new { ps.ProductId, ps.SupplierId });
+
+            modelBuilder.Entity<ProductSupplier>()
+                .HasOne(ps => ps.Supplier)
+                .WithMany(s => s.ProductSuppliers)
+                .HasForeignKey(ps => ps.SupplierId);
+
+            modelBuilder.Entity<ProductSupplier>()
+                .HasOne(ps => ps.Product)
+                .WithMany(p => p.ProductSuppliers)
+                .HasForeignKey(ps => ps.ProductId);
 
         }
     }
