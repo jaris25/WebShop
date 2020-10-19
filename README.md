@@ -6,5 +6,5 @@ Main functions of the model are:
 3) Fully defined relationship between Customer-Order-OrderItem which results in cascade delete if one of the parent items is removed.
 4) Required relationship between Customer and Customer registrations details.
 
-![](Images/DbSchema.png)
+![](Images/WebShopDbSchema.png)
 
