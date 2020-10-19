@@ -24,11 +24,14 @@ namespace WebShop.Data.Repository
                     // Additional check to see if item is still available when confirming order.
                     if (supplier == null)
                     {
-                            order.TotalPrice -= item.Product.Price * item.Quantity;
-                            continue;
+                        order.TotalPrice -= item.Product.Price * item.Quantity;
+                        _context.OrderItems.Remove(item);
+                        continue;
                     }
                     supplier.Quantity -= item.Quantity;
                 }
+                _context.Orders.Update(order);
+                _context.SaveChanges();
             }
         }
 
